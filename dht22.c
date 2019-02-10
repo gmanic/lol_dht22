@@ -16,7 +16,7 @@
 
 #include "locking.h"
 
-#define DEBUG false
+#define DEBUG FALSE
 
 #define MAXTIMINGS 85
 static int DHTPIN = 7;
@@ -39,7 +39,7 @@ static uint8_t sizecvt(const int read)
 static int read_dht22_dat()
 {
   uint8_t laststate = HIGH;
-  uint8_t counter = 0;
+//  uint8_t counter = 0;
   uint8_t j = 0, i;
   int dht_sum;
 
