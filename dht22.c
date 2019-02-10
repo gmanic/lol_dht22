@@ -101,7 +101,7 @@ static int read_dht22_dat()
   {
     printf("Data not good, skip\n");
     dht_sum=(dht22_dat[0] + dht22_dat[1] + dht22_dat[2] + dht22_dat[3]) & 0xFF;
-    printf("transitions: %d, bitcount: %d, raw: %d %d %d %d, sum %d, checksum %d\n", i, j, dht22_dat[0], dht22_dat[1], dht22_dat[2], dht22_dat[3], dht_sum, dht22_dat[4]);
+    if (DEBUG) printf("transitions: %d, bitcount: %d, raw: %d %d %d %d, sum %d, checksum %d\n", i, j, dht22_dat[0], dht22_dat[1], dht22_dat[2], dht22_dat[3], dht_sum, dht22_dat[4]);
     return 0;
   }
 }
