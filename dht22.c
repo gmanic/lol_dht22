@@ -48,11 +48,11 @@ static int read_dht22_dat()
   // pull pin down for 18 milliseconds
   pinMode(DHTPIN, OUTPUT);
   digitalWrite(DHTPIN, HIGH);
-  delay(50);
+  delay(500);
   digitalWrite(DHTPIN, LOW);
-  delay(1);
+  delay(10);
   digitalWrite(DHTPIN, HIGH);
-//  delayMicroseconds(15);
+  delayMicroseconds(5);
 // prepare to read the pin
   pinMode(DHTPIN, INPUT);
 
@@ -76,7 +76,7 @@ static int read_dht22_dat()
       // shove each bit into the storage bytes
       dht22_dat[j/8] <<= 1;
       if (DEBUG) printf("Counter for bit %d: %d\n", j, raw[i]);
-      if ((raw[i] > 16) && (raw[i] < 200))
+      if ((raw[i] > 14) && (raw[i] < 200))
         dht22_dat[j/8] |= 1;
       j++;
     }
@@ -150,10 +150,10 @@ int main (int argc, char *argv[])
 
   while (read_dht22_dat() == 0 && tries--)
   {
-     delay(1800); // wait 1.8sec to refresh
+     delay(3000); // wait 1.8sec to refresh
   }
 
-  delay(1500);
+  delay(500);
   if(lock)
     close_lockfile(lockfd);
 
