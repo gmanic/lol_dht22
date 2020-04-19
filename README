@@ -5,6 +5,10 @@ Requires wiringPi library.
 Also based on esp8266 basic dht-functions (thanks to Adafruit Ind.)
 MIT License
 
+Implemented a different way to retrieve correct bits off the sensors
+returns. It is kind of self leveling based on the dht22's definition of
+high's and low's.
+
 MAKE
 
 ./configure
